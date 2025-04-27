@@ -6,8 +6,8 @@ import { Header } from "@/components/Header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "My Blog",
-  description: "A personal blog about technology and development",
+  title: "Dimas Mufid",
+  description: "My journey on building AI startups",
 };
 
 export default function RootLayout({
