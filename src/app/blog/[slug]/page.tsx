@@ -2,20 +2,18 @@ import { getAllPostSlugs, getPostData } from "@/lib/markdown";
 import { formatDate } from "@/lib/utils";
 import { notFound } from "next/navigation";
 
-interface BlogPostPageProps {
-  params: {
-    slug: string;
-  };
-}
-
 export async function generateStaticParams() {
   const paths = getAllPostSlugs();
   return paths;
 }
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   try {
-    const post = await getPostData(params.slug);
+    const post = await getPostData((await params).slug);
 
     return (
       <article className="min-h-screen py-16 px-4">
