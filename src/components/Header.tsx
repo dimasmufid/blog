@@ -47,7 +47,7 @@ export function Header() {
             >
               About
             </Link>
-            <Link
+            {/* <Link
               href="/contact"
               className={`text-sm transition-colors hover:text-primary ${
                 isActive("/contact")
@@ -56,7 +56,7 @@ export function Header() {
               }`}
             >
               Contact
-            </Link>
+            </Link> */}
           </nav>
         </div>
       </div>

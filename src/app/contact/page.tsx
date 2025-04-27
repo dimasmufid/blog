@@ -15,6 +15,18 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
+import { toast } from "sonner";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+import { Resend } from "resend";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -29,7 +41,9 @@ const formSchema = z.object({
 });
 
 export default function ContactPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
+  const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -41,15 +55,19 @@ export default function ContactPage() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true);
     try {
-      // Here you would typically send the form data to your backend
-      console.log("Form submitted:", values);
-      form.reset();
+      resend.emails.send({
+        from: values.email,
+        to: process.env.RESEND_TO_EMAIL || "dimasmoveit@gmail.com",
+        subject: "New Contact Form Submission",
+        html: `<p>Name: ${values.name}</p><p>Email: ${values.email}</p><p>Message: ${values.message}</p>`,
+      });
+      toast.success("Message sent successfully!");
     } catch (error) {
       console.error("Error submitting form:", error);
-    } finally {
-      setIsSubmitting(false);
+      toast.error(
+        error instanceof Error ? error.message : "Failed to send message"
+      );
     }
   }
 
@@ -110,12 +128,31 @@ export default function ContactPage() {
               )}
             />
 
-            <Button type="submit" className="w-full" disabled={isSubmitting}>
-              {isSubmitting ? "Sending..." : "Send Message"}
+            <Button type="submit" className="w-full">
+              Send Message
             </Button>
           </form>
         </Form>
       </div>
+
+      {/* Confirmation Dialog */}
+      <AlertDialog open={showConfirmation} onOpenChange={setShowConfirmation}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Confirm Submission</AlertDialogTitle>
+            <AlertDialogDescription>
+              Are you sure you want to send this message? This action cannot be
+              undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={() => setShowConfirmation(false)}>
+              Send Message
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

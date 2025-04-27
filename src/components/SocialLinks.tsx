@@ -1,9 +1,20 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin, Twitter, Send } from "lucide-react";
 
 export function SocialLinks() {
   return (
     <div className="flex gap-4">
+      <Button variant="ghost" size="icon" asChild>
+        <a
+          href="https://t.me/dimasmufid"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Telegram"
+        >
+          <Send className="h-5 w-5" />
+        </a>
+      </Button>
+
       <Button variant="ghost" size="icon" asChild>
         <a
           href="https://x.com/dimasmufid"
