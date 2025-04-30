@@ -17,15 +17,27 @@ export default async function BlogPostPage({
 
     return (
       <article className="min-h-screen py-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <header className="mb-8">
-            <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-            <time className="text-muted-foreground">
+        <div className="max-w-3xl mx-auto">
+          <header className="mb-10">
+            <h1 className="text-4xl font-bold mb-2">{post.title}</h1>
+            <time className="text-sm text-muted-foreground">
               {formatDate(post.date)}
             </time>
+            {post.tag && post.tag.length > 0 && (
+              <div className="flex gap-2 mt-3">
+                {post.tag.map((tag: string) => (
+                  <span
+                    key={tag}
+                    className="px-2 py-1 text-xs rounded-full bg-muted text-muted-foreground"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </header>
           <div
-            className="prose prose-lg max-w-none"
+            className="markdown-content"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         </div>

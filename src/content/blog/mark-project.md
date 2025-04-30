@@ -5,11 +5,9 @@ excerpt: "Mark, AI Business Analyst"
 tag: ["mark"]
 ---
 
-# Mark Project
-
 ## Background
 
-I am a data professional. I have experienced in building data data pipeline, data modelling, until answer business questions as a report or dashboard. I strongly believe that data is a strong assets for a business. We can easily define whether a business will be growth or gone in the next 5 years by seeing how strong the data is driven the business.
+I am a data professional. I have experienced in building data pipeline, data modelling, until answer business questions as a report or dashboard. I strongly believe that data is a strong assets for a business. We can easily define whether a business will be growth or gone in the next 5 years by seeing how strong the data is driven the business.
 
 But on the other hand, as my experience in serving business user to optimize their data, there are many cases when the job is repetitive. I have to build the same report or dashboard for the same question over and over again. While the business question and needed is dynamic, current dashboard is static.
 
