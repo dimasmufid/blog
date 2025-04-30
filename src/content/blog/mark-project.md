@@ -1,11 +1,11 @@
 ---
 title: "Mark Project"
-date: "2024-04-27"
+date: "2025-04-27"
 excerpt: "Mark, AI Business Analyst"
 tag: ["mark"]
 ---
 
-## Background
+# Background
 
 I am a data professional. I have experienced in building data pipeline, data modelling, until answer business questions as a report or dashboard. I strongly believe that data is a strong assets for a business. We can easily define whether a business will be growth or gone in the next 5 years by seeing how strong the data is driven the business.
 
@@ -13,7 +13,7 @@ But on the other hand, as my experience in serving business user to optimize the
 
 Therefore with Mark, I want to help **more business user** to understand their data and answer their business questions **faster** and **better**.
 
-## Solution
+# Solution
 
 With the current development in AI (especially Large Language Model), it is succeed to unlock the opportunity to build AI for helping business user to analyze their data. It is like having a **personal business analyst which is always available by your side**.
 
@@ -29,7 +29,7 @@ But a plain AI is not enough. As my experince in helping business user, the most
 
 3. Help the user easy to understand the data by giving a good visualization, even export the visualization as PDF to help the user present the data to their stakeholder.
 
-## Next Steps
+# Next Steps
 
 In the next blog, I will show about the **detail requirements** and the **tech stack** that I will use to build Mark.
 
