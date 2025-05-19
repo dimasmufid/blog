@@ -293,7 +293,7 @@ pre[class*="language-"] {
 
 /* Links */
 .markdown-content a {
-  color: var(--primary);
+  color: var(--muted-foreground);
   text-decoration: none;
 }
 

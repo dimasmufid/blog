@@ -19,7 +19,53 @@ After directly trying the apps, I feel like I have another idea for mark. I can 
 
 To understand the source code, the first thing to do, is to try to host the app to my local machine. Fortunately, they already provide the step on their `README.md` file. You can directly follow along the step on [their repository](https://github.com/kortix-ai/suna). But apparently, it is far more time consuming that I expected. I have to not only install the dependencies, but also need to get an API key for each third party service it used, and also solve error that is not managed by the documentation it self.
 
-After I finally host the app, I try to understand the code. I remember that delvin have [deepwiki](https://docs.devin.ai/work-with-devin/deepwiki). Which is a tool that can help you to understand the codebase of your project. Which help me a lot to understand the [codebase of suna](https://deepwiki.com/kortix-ai/suna). From that point, I learn how the agentic AI works on suna, from the client interact with the frontend, to the backend, and how they manage thread of the agentic AI. It is interesting but apparently very complex. I try to push myself to finished reading it, but probably only understand 30% of it. But I can get the idea how the agentic AI works on suna.
+After I finally host the app, I try to understand the code.
+
+```bash
+.
+├── backend
+│   ├── __pycache__
+│   ├── agent
+│   ├── agentpress
+│   ├── api.py
+│   ├── docker-compose.yml
+│   ├── Dockerfile
+│   ├── fly.production.toml
+│   ├── fly.staging.toml
+│   ├── logs
+│   ├── MANIFEST.in
+│   ├── poetry.lock
+│   ├── pyproject.toml
+│   ├── README.md
+│   ├── requirements.txt
+│   ├── sandbox
+│   ├── services
+│   ├── supabase
+│   └── utils
+├── docker-compose.ghcr.yaml
+├── docker-compose.yaml
+├── docs
+│   └── images
+├── frontend
+│   ├── components.json
+│   ├── Dockerfile
+│   ├── eslint.config.mjs
+│   ├── next-env.d.ts
+│   ├── next.config.ts
+│   ├── node_modules
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── postcss.config.mjs
+│   ├── public
+│   ├── README.md
+│   ├── src
+│   └── tsconfig.json
+├── LICENSE
+├── README.md
+└── supabase
+```
+
+I remember that delvin have [deepwiki](https://docs.devin.ai/work-with-devin/deepwiki). Which is a tool that can help you to understand the codebase of your project. Which help me a lot to understand the [codebase of suna](https://deepwiki.com/kortix-ai/suna). From that point, I learn how the agentic AI works on suna, from the client interact with the frontend, to the backend, and how they manage thread of the agentic AI. It is interesting but apparently very complex. I try to push myself to finished reading it, but probably only understand 30% of it. But I can get the idea how the agentic AI works on suna.
 
 ## Discussion with the team
 
