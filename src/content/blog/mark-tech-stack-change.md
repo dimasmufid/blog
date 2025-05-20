@@ -1,7 +1,7 @@
 ---
 title: Mark Tech Stack Change
 date: 2025-05-20
-excerpt: ""
+excerpt: Decision to separate backend service from nextjs into fastapi
 tags:
   - mark
 ---
