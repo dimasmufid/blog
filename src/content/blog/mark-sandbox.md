@@ -2,8 +2,7 @@
 title: Mark Sandbox
 date: 2025-05-21
 excerpt: The first day on building mark backend, build sandbox environment.
-tags:
-  - mark
+tag: ["mark"]
 ---
 
 # Background
