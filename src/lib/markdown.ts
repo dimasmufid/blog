@@ -62,7 +62,8 @@ export async function getPostData(slug: string): Promise<BlogPostData> {
 
 export function getAllPosts(): BlogPostData[] {
   const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map((fileName) => {
+
+  const allPostsDataUnsorted = fileNames.map((fileName) => {
     // Remove ".md" from file name to get slug
     const slug = fileName.replace(/\.md$/, "");
 
@@ -83,6 +84,17 @@ export function getAllPosts(): BlogPostData[] {
     };
   });
 
-  // Sort posts by date
-  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+  const sortedPostsData = allPostsDataUnsorted.sort((a, b) => {
+    // Handle cases where dates might be undefined or null for robustness
+    if (!a.date && !b.date) return 0;
+    if (!a.date) return 1; // Posts without dates go to the end (as if older)
+    if (!b.date) return -1; // Posts without dates go to the end
+
+    // Standard descending sort for "YYYY-MM-DD" date strings
+    if (a.date < b.date) return 1;
+    if (a.date > b.date) return -1;
+    return 0; // Dates are equal
+  });
+
+  return sortedPostsData;
 }

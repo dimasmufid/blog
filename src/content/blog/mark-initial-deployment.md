@@ -17,7 +17,7 @@ This is my current project structure. For each apps (backend and frontend), have
 
 For each apps, it needs `Dockerfile` for it having its own isolated container to run. Then the docker compose will connect them into 1 mono repo apps.
 
-```sheel
+```shell
 .
 ├── backend
 │   ├── alembic_app_state
