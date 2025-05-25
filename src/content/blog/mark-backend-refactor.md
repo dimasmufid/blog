@@ -1,9 +1,8 @@
 ---
-title: mark-backend-refactor
+title: Mark Backend Refactor
 date: 2025-05-23
 excerpt: Refactor backend from based on file type into modular
-tags:
-  - mark
+tag: ["mark"]
 ---
 
 # Background
@@ -161,11 +160,12 @@ It will be amazing if fastapi could be modular just like what I ever did in nest
 
 # Modular Fastapi
 
-With that in mind, I start to looking for it. What are the alternatives on manage fastapi project? After looking for about 15 minutes, I stunned when [I read that it could](https://medium.com/@amirm.lavasani/how-to-structure-your-fastapi-projects-0219a6600a8f)! 
+With that in mind, I start to looking for it. What are the alternatives on manage fastapi project? After looking for about 15 minutes, I stunned when [I read that it could](https://medium.com/@amirm.lavasani/how-to-structure-your-fastapi-projects-0219a6600a8f)!
 
 Moreover, [the creator of the fastapi itself](https://github.com/zhanymkanov), made this repository, and I am very amaze with that. it even more than I expected. They could provide me not only the guidance of [the best practice on the project structure](https://github.com/zhanymkanov/fastapi-best-practices#1-project-structure-consistent--predictable), but also the [template](https://github.com/zhanymkanov/fastapi_production_template) on doing that.
 
 This is the example of the project structure.
+
 ```shell
 fastapi-project
 ├── alembic/

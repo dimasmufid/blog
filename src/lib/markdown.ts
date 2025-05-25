@@ -85,15 +85,7 @@ export function getAllPosts(): BlogPostData[] {
   });
 
   const sortedPostsData = allPostsDataUnsorted.sort((a, b) => {
-    // Handle cases where dates might be undefined or null for robustness
-    if (!a.date && !b.date) return 0;
-    if (!a.date) return 1; // Posts without dates go to the end (as if older)
-    if (!b.date) return -1; // Posts without dates go to the end
-
-    // Standard descending sort for "YYYY-MM-DD" date strings
-    if (a.date < b.date) return 1;
-    if (a.date > b.date) return -1;
-    return 0; // Dates are equal
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 
   return sortedPostsData;
