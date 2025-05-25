@@ -23,8 +23,6 @@ I was spending more time wrestling with API inconsistencies than actually buildi
 
 While researching better ways to handle AI interactions, I stumbled upon [PydanticAI](https://ai.pydantic.dev/). Created by the same team behind Pydantic (which I already loved for FastAPI), it promised to solve exactly the problems I was facing.
 
-The tagline caught my attention: _"Agent Framework / shim to use Pydantic with LLMs"_.
-
 What really sold me was seeing this in their docs:
 
 ```python
@@ -41,6 +39,7 @@ print(result.data)
 ```
 
 This looked so much cleaner than what I was doing with raw OpenAI calls.
+In addition, the more complex feature I added to mark, for instance streaming chat (which is the chat will show for each word, instead of the whole sentence at once), the more I realized that I need a better way to handle the AI responses.
 
 # The Migration Journey
 
@@ -82,8 +81,6 @@ async def chat_with_ai(messages: list, stream: bool = False):
             pass
         # ... more manual error handling
 ```
-
-And for function calling? Don't even get me started. It was a mess of JSON schema definitions and manual parsing.
 
 In addition, I also have to handle the context length, rate limit, and other errors manually.
 
@@ -148,44 +145,7 @@ That's it. No more manual chunk parsing, no more provider-specific handling. Pyd
 
 # Advanced Features That Saved Me Hours
 
-## 1. Tool Calling Made Simple
-
-Before PydanticAI, defining tools for function calling was painful:
-
-```python
-# Old way - manual JSON schema
-tools = [
-    {
-        "type": "function",
-        "function": {
-            "name": "query_database",
-            "description": "Query the business database",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "query": {"type": "string"},
-                    "table": {"type": "string"}
-                },
-                "required": ["query", "table"]
-            }
-        }
-    }
-]
-```
-
-With PydanticAI:
-
-```python
-@agent.tool
-async def query_database(query: str, table: str) -> Dict[str, Any]:
-    """Query the business database for insights."""
-    # Implementation here
-    return await db.execute(query, table)
-```
-
-The schema is automatically generated from the function signature and docstring!
-
-## 2. Multi-Provider Support
+## Multi-Provider Support
 
 One of Mark's requirements is to support multiple AI providers for redundancy. With raw APIs, I had to maintain separate code paths:
 
@@ -208,7 +168,7 @@ agent = Agent('openai:gpt-4o')  # or 'anthropic:claude-3-5-sonnet' or 'gemini-1.
 
 Same code, different providers. Beautiful.
 
-## 3. Structured Outputs
+## Structured Outputs
 
 For Mark's business analysis features, I need structured data. Before:
 
@@ -279,12 +239,7 @@ PydanticAI has become the foundation of Mark's AI system. I'm now exploring:
 3. **Advanced streaming** - Real-time data processing with streaming responses
 4. **Agent memory** - Persistent conversation context
 
-# Final Thoughts
+# Learning
 
-If you're building AI applications in Python and still using raw provider APIs, do yourself a favor and check out PydanticAI. It's not just a wrapper - it's a paradigm shift that makes AI development actually enjoyable.
-
-The time I save on boilerplate and error handling now goes into building actual features for Mark. And isn't that what we all want as builders?
-
-For Mark specifically, PydanticAI has enabled features I couldn't have built efficiently with raw APIs - like real-time streaming analysis and multi-step reasoning workflows. It's become as essential to my stack as FastAPI itself.
-
-_Next up: I'll be writing about how I'm using PydanticAI's agent composition to build Mark's multi-step business analysis pipeline. Stay tuned!_
+It is really important to make a plan before you start building.
+What are the features you want to build and how you want to build them? It is true that the existance of interet and AI have made a great impact on the speed we building. But we still need to be careful or instead we will waste our time on the wrong things.
