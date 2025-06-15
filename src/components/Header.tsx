@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Search, Menu, X } from "lucide-react";
+import { formatDate } from "@/lib/utils";
 
 interface BlogPostData {
   slug: string;
@@ -197,7 +198,7 @@ export function Header() {
                     </h3>
                     <p className="text-sm text-gray-600 mb-2">{post.excerpt}</p>
                     <div className="flex items-center gap-2 text-xs text-gray-500">
-                      <span>{new Date(post.date).toLocaleDateString()}</span>
+                      <span>{formatDate(post.date)}</span>
                       {post.tag && (
                         <>
                           <span>•</span>
