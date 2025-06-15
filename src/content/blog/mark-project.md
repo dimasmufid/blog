@@ -3,6 +3,8 @@ title: "Mark Project"
 date: "2025-04-27"
 excerpt: "Mark, AI Business Analyst"
 tag: ["mark"]
+is_featured: true
+image: "https://source.unsplash.com/I5KBHUqeLJQ/800x600"
 ---
 
 # Background

@@ -62,8 +62,8 @@ export default function AboutPage() {
 
           <div className="relative aspect-square w-full max-w-md mx-auto">
             <Image
-              src="/profile.jpg"
-              alt="Profile photo"
+              src="/logo.jpg"
+              alt="Logo"
               fill
               className="object-cover rounded-lg"
               priority

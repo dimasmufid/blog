@@ -18,6 +18,8 @@ export interface BlogPostData {
   excerpt: string;
   content: string;
   tag?: string[];
+  is_featured?: boolean;
+  image?: string;
 }
 
 export function getAllPostSlugs() {
@@ -57,6 +59,8 @@ export async function getPostData(slug: string): Promise<BlogPostData> {
     excerpt: data.excerpt,
     content: contentHtml,
     tag: data.tag,
+    is_featured: data.is_featured || false,
+    image: data.image,
   };
 }
 
@@ -81,6 +85,8 @@ export function getAllPosts(): BlogPostData[] {
       excerpt: data.excerpt,
       content: "", // We don't need the full content for the list view
       tag: data.tag,
+      is_featured: data.is_featured || false,
+      image: data.image,
     };
   });
 
@@ -89,4 +95,10 @@ export function getAllPosts(): BlogPostData[] {
   });
 
   return sortedPostsData;
+}
+
+export function getFeaturedPosts(): BlogPostData[] {
+  return getAllPosts()
+    .filter(post => post.is_featured)
+    .slice(0, 3);
 }

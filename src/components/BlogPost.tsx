@@ -11,28 +11,35 @@ interface BlogPostProps {
 
 export function BlogPost({ title, excerpt, date, slug, tag }: BlogPostProps) {
   return (
-    <article className="border-b border-border py-8">
-      <Link href={`/blog/${slug}`} className="group block">
-        <h2 className="text-2xl font-bold mb-2 text-primary/90 group-hover:text-primary transition-colors">
-          {title}
-        </h2>
-        <p className="text-muted-foreground mb-2">{excerpt}</p>
-        <div className="flex items-center justify-between">
-          <time className="text-sm text-muted-foreground">
-            {formatDate(date)}
-          </time>
-          {tag && tag.length > 0 && (
-            <div className="flex gap-2">
-              {tag.map((t) => (
-                <span
-                  key={t}
-                  className="px-2 py-0.5 text-xs rounded-full bg-muted text-muted-foreground"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-          )}
+    <article className="group">
+      <Link href={`/blog/${slug}`} className="block">
+        <div className="border border-gray-100 rounded-lg p-6 bg-white hover:shadow-md transition-shadow duration-300 h-full">
+          <h2 className="text-xl font-bold mb-3 text-black group-hover:text-gray-800 transition-colors line-clamp-2">
+            {title}
+          </h2>
+          <p className="text-gray-600 mb-4 line-clamp-3 text-sm leading-relaxed">
+            {excerpt}
+          </p>
+          <div className="flex items-center justify-between mt-auto">
+            <time className="text-xs text-gray-500 font-medium">
+              {formatDate(date)}
+            </time>
+            {tag && tag.length > 0 && (
+              <div className="flex gap-1 flex-wrap">
+                {tag.slice(0, 2).map((t) => (
+                  <span
+                    key={t}
+                    className="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
+                  >
+                    {t}
+                  </span>
+                ))}
+                {tag.length > 2 && (
+                  <span className="text-xs text-gray-400">+{tag.length - 2}</span>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </Link>
     </article>
