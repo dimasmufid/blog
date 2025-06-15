@@ -1,17 +1,18 @@
-import { BlogPost } from "@/components/BlogPost";
 import { FeaturedArticles } from "@/components/FeaturedArticles";
+import { LatestPosts } from "@/components/LatestPosts";
 import { SocialLinks } from "@/components/SocialLinks";
 import { getAllPosts, getFeaturedPosts } from "@/lib/markdown";
 import Image from "next/image";
 
 export default function Home() {
-  const latestPosts = getAllPosts().slice(0, 6);
+  const allPosts = getAllPosts();
   const featuredPosts = getFeaturedPosts();
+  const latestPosts = allPosts.slice(0, 4); // Get 4 latest posts for the latest section
 
   return (
     <>
       {/* Hero Section */}
-      <section className="px-4 py-8 pt-16 max-w-7xl mx-auto">
+      <section className="px-4 py-8 pt-12 max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 relative">
           {/* Image container - defines the scroll height */}
           <div className="flex-shrink-0 lg:w-auto w-full">
@@ -44,14 +45,8 @@ export default function Home() {
       {/* Featured Articles */}
       <FeaturedArticles posts={featuredPosts} />
 
-      {/* Blog Posts Grid - Solo Theme Style */}
-      <section className="py-8 px-4 max-w-4xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {latestPosts.map((post) => (
-            <BlogPost key={post.slug} {...post} />
-          ))}
-        </div>
-      </section>
+      {/* Latest Posts */}
+      <LatestPosts posts={latestPosts} />
     </>
   );
 }

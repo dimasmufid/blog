@@ -13,7 +13,7 @@ export function BlogPost({ title, excerpt, date, slug, tag }: BlogPostProps) {
   return (
     <article className="group">
       <Link href={`/blog/${slug}`} className="block">
-        <div className="border border-gray-100 rounded-lg p-6 bg-white hover:shadow-md transition-shadow duration-300 h-full">
+        <div className="p-6 bg-white hover:shadow-md transition-shadow duration-300 h-full">
           <h2 className="text-xl font-bold mb-3 text-black group-hover:text-gray-800 transition-colors line-clamp-2">
             {title}
           </h2>
@@ -35,7 +35,9 @@ export function BlogPost({ title, excerpt, date, slug, tag }: BlogPostProps) {
                   </span>
                 ))}
                 {tag.length > 2 && (
-                  <span className="text-xs text-gray-400">+{tag.length - 2}</span>
+                  <span className="text-xs text-gray-400">
+                    +{tag.length - 2}
+                  </span>
                 )}
               </div>
             )}
