@@ -1,38 +1,48 @@
 ---
 title: "Mark Project"
 date: "2025-04-27"
-excerpt: "Mark, AI Business Analyst"
+excerpt: "Mark, an AI Business Analyst that can become your 24/7 assistant"
 tag: ["mark"]
 is_featured: true
-image: "https://source.unsplash.com/I5KBHUqeLJQ/800x600"
+image: "https://images.pexels.com/photos/669621/pexels-photo-669621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 ---
 
-# Background
+# Why I Started Mark
 
-I am a data professional. I have experienced in building data pipeline, data modelling, until answer business questions as a report or dashboard. I strongly believe that data is a strong assets for a business. We can easily define whether a business will be growth or gone in the next 5 years by seeing how strong the data is driven the business.
+If you’ve ever been the “data person” at a growing company, you know the feeling: every department has questions, and every question feels urgent.
 
-But on the other hand, as my experience in serving business user to optimize their data, there are many cases when the job is repetitive. I have to build the same report or dashboard for the same question over and over again. While the business question and needed is dynamic, current dashboard is static.
+As the data scientist and analytics lead, I built and maintained the dashboards and data pipelines for the entire company. But with only one of me, time quickly became the bottleneck. I’d get hit with questions like:
 
-Therefore with Mark, I want to help **more business user** to understand their data and answer their business questions **faster** and **better**.
+- How are we doing this month compared to last month?
+- Why are sales down?
+- What should we focus on right now?
+- Is retention improving, or are we losing customers?
 
-# Solution
+These are exactly the kind of questions that dashboards are supposed to answer. But the reality? Most business users don’t want to hunt for answers in a dashboard — they just want a direct, actionable response, right when they need it.
 
-With the current development in AI (especially Large Language Model), it is succeed to unlock the opportunity to build AI for helping business user to analyze their data. It is like having a **personal business analyst which is always available by your side**.
+That’s why I started building **Mark**.
 
-But a plain AI is not enough. As my experince in helping business user, the most important thing is **Business Context**. How their business works, their business condition, their business goal, etc. With that in mind, I want to build Mark which could
+# The Vision: A Specialized Agentic System for Business Analysts
 
-1. Could give a business context, whether it is a
+Mark is my attempt to “duplicate myself” — not just as a tool, but as an always-available assistant that understands business context and can engage in real, back-and-forth conversations.
 
-- csv or excel file,
-- company database, or
-- external data source (marketplace, ads, etc)
+Mark isn’t just a chatbot. Under the hood, it’s an AI-powered business analyst that connects directly to your BigQuery data warehouse, performs complex analysis, generates visualizations, and crafts clear, data-driven narratives.
 
-2. Having a strong analyst character. Having critical thinking, could ask the right questions, and objective even when the truth is not what the user want to hear, and a good story teller to help the user understand the data.
+> The goal: turn raw data into direct business insight — with zero friction for the user.
 
-3. Help the user easy to understand the data by giving a good visualization, even export the visualization as PDF to help the user present the data to their stakeholder.
+# What Makes Mark Different
 
-# Next Steps
+- **Conversational Interface**: Ask questions in plain language. Mark handles the translation to data queries, even for nuanced or ambiguous business problems.
+- **Agentic AI**: Mark isn’t just reactive. It takes initiative to ask clarifying questions, explore root causes, and pull in relevant context from your data — just like a real analyst would.
+- **Direct-to-Insight Workflow**: No more dashboard digging. Mark delivers answers, explanations, and charts right in the conversation.
+- **Built for Busy Teams**: Mark is designed for companies where the “data person” is overextended, and business users need fast, clear answers — not a new dashboard to learn.
 
-In the next blog, I will show about the **detail requirements** and the **tech stack** that I will use to build Mark.
+# The Problem I’m Solving
 
-Stay tuned!
+At the heart of it: scaling myself. I want to empower every business user to get the answers they need, when they need them — without waiting in line or learning SQL.
+
+With Mark, the experience should feel like having your own personal business analyst, 24/7.
+
+# Where I’m At Today
+
+Mark is live and integrated with our BigQuery data warehouse. I’m continuing to iterate, improve the agent’s reasoning, and expand the types of analysis it can deliver. My focus right now is on making the experience as natural and trustworthy as possible, so users feel like they’re working with a real collaborator — not just another tool.

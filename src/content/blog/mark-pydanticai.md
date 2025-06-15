@@ -3,7 +3,6 @@ title: Mark PydanticAI - From Plain Docs to Structured AI
 date: 2025-05-24
 excerpt: The meet with PydanticAI, which will be the fundamental of Mark AI system
 tag: ["mark"]
-is_featured: true
 ---
 
 # Background

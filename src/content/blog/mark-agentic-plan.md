@@ -3,7 +3,6 @@ title: "Mark Agentic Plan"
 date: "2025-05-19"
 excerpt: "Consideration on how to build Mark as an agentic product"
 tag: ["mark"]
-is_featured: true
 image: "/images/blog-assets/Pasted%20image%2020250519082449.png"
 ---
 
