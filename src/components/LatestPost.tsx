@@ -1,4 +1,4 @@
-import { formatDate } from "@/lib/utils";
+import { formatDate, calculateReadingTime } from "@/lib/utils";
 import { getBlogPostImage } from "@/lib/imageUtils";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,11 +10,13 @@ interface LatestPostProps {
   slug: string;
   tag?: string[];
   image?: string;
+  rawContent?: string;
   readTime?: string;
 }
 
-export function LatestPost({ title, excerpt, date, slug, tag, image, readTime = "1 min read" }: LatestPostProps) {
+export function LatestPost({ title, excerpt, date, slug, tag, image, rawContent, readTime }: LatestPostProps) {
   const imageSrc = getBlogPostImage(image);
+  const calculatedReadTime = rawContent ? calculateReadingTime(rawContent) : (readTime || "1 min read");
 
   return (
     <article className="group">
@@ -45,7 +47,7 @@ export function LatestPost({ title, excerpt, date, slug, tag, image, readTime = 
           <div className="flex items-center gap-3 text-xs md:text-sm text-gray-500">
             <time>{formatDate(date)}</time>
             <span>•</span>
-            <span>{readTime}</span>
+            <span>{calculatedReadTime}</span>
             {tag && tag.length > 0 && (
               <>
                 <span>•</span>

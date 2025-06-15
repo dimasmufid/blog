@@ -1,4 +1,4 @@
-import { BlogPost } from "@/components/BlogPost";
+import { LatestPost } from "@/components/LatestPost";
 import { getAllPosts } from "@/lib/markdown";
 
 export default function BlogPage() {
@@ -8,9 +8,9 @@ export default function BlogPage() {
     <div className="min-h-screen py-16 px-4">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-8">Blog Posts</h1>
-        <div className="space-y-4">
+        <div className="bg-white rounded-lg overflow-hidden">
           {blogPosts.map((post) => (
-            <BlogPost key={post.slug} {...post} />
+            <LatestPost key={post.slug} {...post} />
           ))}
         </div>
       </div>

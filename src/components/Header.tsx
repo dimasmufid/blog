@@ -60,8 +60,7 @@ export function Header() {
 
   const navigation = [
     { name: "Home", href: "/" },
-    { name: "Mark", href: "/tag/mark" },
-    { name: "Computer Science", href: "/tag/ai" },
+    { name: "Blog", href: "/blog" },
     { name: "About", href: "/about" },
   ];
 

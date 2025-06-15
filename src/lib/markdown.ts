@@ -17,6 +17,7 @@ export interface BlogPostData {
   date: string;
   excerpt: string;
   content: string;
+  rawContent?: string; // For reading time calculation
   tag?: string[];
   is_featured?: boolean;
   image?: string;
@@ -75,15 +76,16 @@ export function getAllPosts(): BlogPostData[] {
     const fullPath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
 
-    // Parse markdown metadata
-    const { data } = matter(fileContents);
+    // Parse markdown metadata and content
+    const { data, content } = matter(fileContents);
 
     return {
       slug,
       title: data.title,
       date: data.date,
       excerpt: data.excerpt,
-      content: "", // We don't need the full content for the list view
+      content: "", // We don't need the full HTML content for the list view
+      rawContent: content, // Include raw markdown content for reading time calculation
       tag: data.tag,
       is_featured: data.is_featured || false,
       image: data.image,
