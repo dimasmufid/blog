@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Toaster } from "sonner";
+import { MermaidRenderer } from "@/components/MermaidRenderer";
 
 const inter = Inter({ subsets: ["latin", "latin-ext"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Toaster />
+        <MermaidRenderer />
       </body>
     </html>
   );
