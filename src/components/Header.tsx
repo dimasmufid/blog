@@ -68,7 +68,7 @@ export function Header() {
   return (
     <>
       <header className="sticky top-0 z-50 w-full bg-white flex items-center">
-        <div className="w-full">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3">
@@ -130,7 +130,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-100 bg-white">
+          <div className="absolute top-full left-0 right-0 md:hidden border-t border-gray-100 bg-white shadow-lg">
             <nav className="px-4 py-4 space-y-3">
               {navigation.map((item) => (
                 <Link
@@ -158,7 +158,7 @@ export function Header() {
           onClick={closeSearch}
         >
           <div
-            className="bg-white mt-20 rounded-lg shadow-xl max-w-2xl mx-auto border border-gray-200"
+            className="bg-white mt-20 mx-4 sm:mx-auto rounded-lg shadow-xl max-w-2xl border border-gray-200"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-4">

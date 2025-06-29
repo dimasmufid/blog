@@ -3,6 +3,7 @@ import { formatDate } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { BlogCTA } from "@/components/BlogCTA";
 
 export async function generateStaticParams() {
   const paths = getAllPostSlugs();
@@ -84,6 +85,9 @@ export default async function BlogPostPage({
                 className="markdown-content"
                 dangerouslySetInnerHTML={{ __html: post.content }}
               />
+              
+              {/* Call to Action */}
+              <BlogCTA />
             </main>
           </div>
         </div>
